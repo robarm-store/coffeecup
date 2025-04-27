@@ -26,6 +26,15 @@
       text-align: right;
       justify-content: right;
     }
+    #one {
+      color: green;
+    }
+    #two {
+      color: green;
+    }
+    #three {
+      color: green;
+    }
   </style>
 </head>
 <body class="bg-neutral-100 font-sans">
@@ -34,7 +43,7 @@
       <a href="index.html" class="text-2xl font-bold text-amber-800">Coffeecup</a>
       <nav class="space-x-4 text-neutral-700">
         <a href="menu.html" class="hover:text-amber-600">Menu</a>
-        <a href="order.html" class="hover:text-amber-600">Order</a>
+        <a href="cart.html" class="hover:text-amber-600">Cart</a>
       </nav>
     </div>
   </header>
@@ -43,11 +52,11 @@
     <h1 class="text-4xl font-bold text-center text-amber-800 mb-6">Coffeecup — Menu</h1>
     <p style="font-size:22.6px;" class="text-lg text-center text-neutral-700">Coffee</p>
     <br><br><div class="left"><p>Latte 300ml — 890 dram</p><br>
-    <button onclick="cart('Latte')" class="cartbutton">Add To Cart</button></div>
+    <button onclick="cart('Latte — 890dr.')" class="cartbutton">Add To Cart</button><br><p id="one"></p></div>
     <div class="right"><p>Cappucino 300ml — 890 dram</p><br>
-    <button onclick="cart('Cappucino')" class="cartbutton">Add To Cart</button></div>
+    <button onclick="cart('Cappucino — 890dr.')" class="cartbutton">Add To Cart</button><br><p id="two"></p></div>
     <div class="left"><p>Flat White 300ml — 990 dram</p><br>
-    <button onclick="cart('Flat white')" class="cartbutton">Add To Cart</button></div>
+    <button onclick="cart('Flat white — 990dr.')" class="cartbutton">Add To Cart</button><br><p id="three"></p></div>
     <br><br>
     <a href="./cart.html">To Cart
     </a>
@@ -61,6 +70,17 @@
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(item);
   localStorage.setItem("cart", JSON.stringify(cart));
+  if (item === "Latte — 890dr.") {
+  const one = document.getElementById('one');
+  one.textContent = 'Added to Cart';
+} else if (item === "Cappucino — 890dr.") {
+  const two = document.getElementById('two');
+  two.textContent = 'Added to Cart';
+} else {
+  const three = document.getElementById('three');
+  three.textContent = 'Added to Cart';
+}
+
 }
 </script>
 </body>
